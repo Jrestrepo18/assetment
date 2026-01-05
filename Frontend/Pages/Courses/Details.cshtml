@@ -1,0 +1,137 @@
+@page "{id:guid}"
+@model OnlineCoursesPlatform.Web.Pages.Courses.DetailsModel
+@{
+    ViewData["Title"] = Model.Course?.Title ?? "Detalles del Curso";
+}
+
+<nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-page="Index">Cursos</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@Model.Course?.Title</li>
+    </ol>
+</nav>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle me-2"></i>@TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+@if (Model.Course != null)
+{
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card shadow-sm mb-4">
+                @if (!string.IsNullOrEmpty(Model.Course.ImageUrl))
+                {
+                    <img src="@Model.Course.ImageUrl" class="card-img-top" alt="@Model.Course.Title" 
+                         style="height: 300px; object-fit: cover;">
+                }
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <h1 class="card-title">@Model.Course.Title</h1>
+                        <span class="badge bg-@(Model.Course.Status == "Published" ? "success" : "secondary") fs-6">
+                            @Model.Course.Status
+                        </span>
+                    </div>
+                    
+                    <p class="card-text">@Model.Course.Description</p>
+                    
+                    <hr>
+                    
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <i class="bi bi-clock text-primary fs-3"></i>
+                            <p class="mb-0 mt-2"><strong>@Model.Course.FormattedDuration</strong></p>
+                            <small class="text-muted">Duración</small>
+                        </div>
+                        <div class="col-4">
+                            <i class="bi bi-collection-play text-primary fs-3"></i>
+                            <p class="mb-0 mt-2"><strong>@Model.Course.LessonsCount</strong></p>
+                            <small class="text-muted">Lecciones</small>
+                        </div>
+                        <div class="col-4">
+                            <i class="bi bi-person text-primary fs-3"></i>
+                            <p class="mb-0 mt-2"><strong>@Model.Course.InstructorName</strong></p>
+                            <small class="text-muted">Instructor</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lecciones -->
+            <div class="card shadow-sm">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0"><i class="bi bi-list-ol me-2"></i>Contenido del Curso</h5>
+                    @if (Model.IsInstructor)
+                    {
+                        <a asp-page="/Lessons/Create" asp-route-courseId="@Model.Course.Id" class="btn btn-sm btn-primary">
+                            <i class="bi bi-plus-lg"></i> Agregar Lección
+                        </a>
+                    }
+                </div>
+                <ul class="list-group list-group-flush">
+                    @if (Model.Lessons.Any())
+                    {
+                        foreach (var lesson in Model.Lessons)
+                        {
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge bg-primary me-2">@lesson.Order</span>
+                                    @lesson.Title
+                                    <small class="text-muted ms-2">(@lesson.FormattedDuration)</small>
+                                </div>
+                                <a asp-page="/Lessons/Edit" asp-route-id="@lesson.Id" class="btn btn-sm btn-outline-secondary">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="list-group-item text-center text-muted">
+                            No hay lecciones en este curso todavía.
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card shadow-sm sticky-top" style="top: 20px;">
+                <div class="card-body text-center">
+                    <h2 class="text-primary mb-3">@Model.Course.FormattedPrice</h2>
+                    <button class="btn btn-primary btn-lg w-100 mb-3">
+                        <i class="bi bi-cart-plus me-2"></i>Inscribirse
+                    </button>
+                    
+                    @if (Model.IsInstructor)
+                    {
+                        <hr>
+                        <div class="d-grid gap-2">
+                            <a asp-page="Edit" asp-route-id="@Model.Course.Id" class="btn btn-outline-warning">
+                                <i class="bi bi-pencil me-2"></i>Editar Curso
+                            </a>
+                            @if (Model.Course.Status != "Published")
+                            {
+                                <form method="post" asp-page-handler="Publish">
+                                    <button type="submit" class="btn btn-outline-success w-100">
+                                        <i class="bi bi-globe me-2"></i>Publicar
+                                    </button>
+                                </form>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        <i class="bi bi-exclamation-triangle me-2"></i>Curso no encontrado.
+    </div>
+}

@@ -1,0 +1,91 @@
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.rsuser
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# NuGet
+*.nupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+
+# SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Mac
+.DS_Store
+
+# User-specific files
+*.suo
+*.user
+*.userprefs
+*.sln.ide
+
+# Build outputs
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# StyleCop
+StyleCopReport.xml
+
+# Entity Framework
+*.db
+*.db-shm
+*.db-wal
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+appsettings.*.json
+!appsettings.json
+!appsettings.Development.json
+
+# Node
+node_modules/
+npm-debug.log
+
+# Test Results
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# Docker
+docker-compose.override.yml

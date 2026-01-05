@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  # SQL Server Database
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: onlinecourses-db
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong@Passw0rd
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    networks:
+      - onlinecourses-network
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P YourStrong@Passw0rd -Q 'SELECT 1' || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+
+  # Backend API
+  api:
+    build:
+      context: ./Backend
+      dockerfile: src/OnlineCoursesPlatform.API/Dockerfile
+    container_name: onlinecourses-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=OnlineCoursesDb;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=True
+    ports:
+      - "5000:80"
+      - "5001:443"
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    networks:
+      - onlinecourses-network
+
+  # Frontend Web
+  web:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    container_name: onlinecourses-web
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ApiSettings__BaseUrl=http://api:80
+    ports:
+      - "5002:80"
+      - "5003:443"
+    depends_on:
+      - api
+    networks:
+      - onlinecourses-network
+
+volumes:
+  sqlserver-data:
+
+networks:
+  onlinecourses-network:
+    driver: bridge
