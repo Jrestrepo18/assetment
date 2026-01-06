@@ -1,0 +1,230 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/jerorpo/Documentos/assetment/backend/tests/CoursePlatform.Tests/CoursePlatform.Tests.csproj": {}
+  },
+  "projects": {
+    "/home/jerorpo/Documentos/assetment/backend/src/CoursePlatform.Core/CoursePlatform.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jerorpo/Documentos/assetment/backend/src/CoursePlatform.Core/CoursePlatform.Core.csproj",
+        "projectName": "CoursePlatform.Core",
+        "projectPath": "/home/jerorpo/Documentos/assetment/backend/src/CoursePlatform.Core/CoursePlatform.Core.csproj",
+        "packagesPath": "/home/jerorpo/.nuget/packages/",
+        "outputPath": "/home/jerorpo/Documentos/assetment/backend/src/CoursePlatform.Core/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jerorpo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.121/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/jerorpo/Documentos/assetment/backend/src/CoursePlatform.Infrastructure/CoursePlatform.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jerorpo/Documentos/assetment/backend/src/CoursePlatform.Infrastructure/CoursePlatform.Infrastructure.csproj",
+        "projectName": "CoursePlatform.Infrastructure",
+        "projectPath": "/home/jerorpo/Documentos/assetment/backend/src/CoursePlatform.Infrastructure/CoursePlatform.Infrastructure.csproj",
+        "packagesPath": "/home/jerorpo/.nuget/packages/",
+        "outputPath": "/home/jerorpo/Documentos/assetment/backend/src/CoursePlatform.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jerorpo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/jerorpo/Documentos/assetment/backend/src/CoursePlatform.Core/CoursePlatform.Core.csproj": {
+                "projectPath": "/home/jerorpo/Documentos/assetment/backend/src/CoursePlatform.Core/CoursePlatform.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.121/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/jerorpo/Documentos/assetment/backend/tests/CoursePlatform.Tests/CoursePlatform.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jerorpo/Documentos/assetment/backend/tests/CoursePlatform.Tests/CoursePlatform.Tests.csproj",
+        "projectName": "CoursePlatform.Tests",
+        "projectPath": "/home/jerorpo/Documentos/assetment/backend/tests/CoursePlatform.Tests/CoursePlatform.Tests.csproj",
+        "packagesPath": "/home/jerorpo/.nuget/packages/",
+        "outputPath": "/home/jerorpo/Documentos/assetment/backend/tests/CoursePlatform.Tests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jerorpo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/jerorpo/Documentos/assetment/backend/src/CoursePlatform.Core/CoursePlatform.Core.csproj": {
+                "projectPath": "/home/jerorpo/Documentos/assetment/backend/src/CoursePlatform.Core/CoursePlatform.Core.csproj"
+              },
+              "/home/jerorpo/Documentos/assetment/backend/src/CoursePlatform.Infrastructure/CoursePlatform.Infrastructure.csproj": {
+                "projectPath": "/home/jerorpo/Documentos/assetment/backend/src/CoursePlatform.Infrastructure/CoursePlatform.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[8.8.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.6.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.72, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.2, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.121/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
